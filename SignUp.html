@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sign Up - QuickCure</title>
+  <link rel="stylesheet" href="SignUp.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  />
+</head>
+<body>
+  <div class="signup-container">
+    <div class="signup-card">
+      <div class="signup-header">
+        <div class="logo">
+          <i class="fas fa-heartbeat"></i>
+          <h1>QuickCure</h1>
+        </div>
+        <h2>Create Account</h2>
+        <p>Join our medical community today</p>
+      </div>
+
+      <form id="signupForm" class="signup-form" novalidate>
+        <div id="step1" class="form-step">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">First Name</label>
+              <div class="input-wrapper">
+                <i class="fas fa-user"></i>
+                <input
+                  type="text"
+                  id="firstName"
+                  name="firstName"
+                  placeholder="Enter first name"
+                  required
+                  autocomplete="given-name"
+                />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name</label>
+              <div class="input-wrapper">
+                <i class="fas fa-user"></i>
+                <input
+                  type="text"
+                  id="lastName"
+                  name="lastName"
+                  placeholder="Enter last name"
+                  required
+                  autocomplete="family-name"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <div class="input-wrapper">
+              <i class="fas fa-envelope"></i>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Enter email address"
+                required
+                autocomplete="email"
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <div class="input-wrapper">
+              <i class="fas fa-phone"></i>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="Enter phone number"
+                required
+                autocomplete="tel"
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="userType">Account Type</label>
+            <div class="input-wrapper">
+              <i class="fas fa-user-tag"></i>
+              <select id="userType" name="userType" required>
+                <option value="">Select account type</option>
+                <option value="patient">Patient</option>
+                <option value="doctor">Doctor</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-buttons">
+            <button type="button" id="nextStepBtn" class="signup-btn">
+              Next <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <div id="step2-doctor" class="form-step" style="display:none;">
+          <div class="form-group">
+            <label for="license">Medical License Number <span style="color: #e53e3e">*</span></label>
+            <div class="input-wrapper">
+              <i class="fas fa-certificate"></i>
+              <input type="text" id="license" name="license" placeholder="Enter license number" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="hospitalAffiliation">Choose Hospital <span style="color: #e53e3e">*</span></label>
+            <div class="input-wrapper">
+              <i class="fas fa-hospital"></i>
+              <select id="hospitalAffiliation" name="hospitalAffiliation" required>
+                <option value="">-- Select Hospital --</option>
+                <option value="city_general">City General Hospital</option>
+                <option value="metro_care">Metro Care Clinic</option>
+                <option value="green_valley">Green Valley Hospital</option>
+                <option value="apollo">Apollo Speciality</option>
+                <option value="fortis">Fortis Healthcare</option>
+                <option value="max_super">Max Super Specialty</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="specialization">Choose Specialty <span style="color: #e53e3e">*</span></label>
+            <div class="input-wrapper">
+              <i class="fas fa-stethoscope"></i>
+              <select id="specialization" name="specialization" required>
+                <option value="">-- Select Specialty --</option>
+                <option value="cardiology">Cardiology</option>
+                <option value="dermatology">Dermatology</option>
+                <option value="pediatrics">Pediatrics</option>
+                <option value="orthopedics">Orthopedics</option>
+                <option value="neurology">Neurology</option>
+                <option value="general">General Medicine</option>
+                <option value="ent">ENT (Ear, Nose, Throat)</option>
+                <option value="psychiatry">Psychiatry</option>
+                <option value="oncology">Oncology</option>
+                <option value="radiology">Radiology</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="experience">Years of Experience <span style="color: #e53e3e">*</span></label>
+            <div class="input-wrapper">
+              <i class="fas fa-calendar-alt"></i>
+              <input type="number" id="experience" name="experience" min="0" max="50" placeholder="e.g., 5" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="qualification">Qualification <span style="color: #e53e3e">*</span></label>
+            <div class="input-wrapper">
+              <i class="fas fa-graduation-cap"></i>
+              <input type="text" id="qualification" name="qualification" placeholder="e.g., MBBS, MD" required />
+            </div>
+          </div>
+          <div class="form-buttons">
+              <button type="button" id="prevStepBtn" class="signup-btn" style="background: #999;">
+                <i class="fas fa-arrow-left"></i> Previous
+              </button>
+              <button type="button" id="nextStep2Btn" class="signup-btn">
+                  Next <i class="fas fa-arrow-right"></i>
+              </button>
+          </div>
+        </div>
+
+        <div id="step3" class="form-step" style="display:none;">
+          <div class="form-group">
+            <label for="password">Password</label>
+            <div class="input-wrapper">
+              <i class="fas fa-lock"></i>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Enter password"
+                required
+                autocomplete="new-password"
+              />
+              <button
+                type="button"
+                class="toggle-password"
+                id="togglePassword"
+                aria-label="Toggle password visibility"
+              >
+                <i class="fas fa-eye"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <div class="input-wrapper">
+              <i class="fas fa-lock"></i>
+              <input
+                type="password"
+                id="confirmPassword"
+                name="confirmPassword"
+                placeholder="Confirm password"
+                required
+                autocomplete="new-password"
+              />
+              <button
+                type="button"
+                class="toggle-password"
+                id="toggleConfirmPassword"
+                aria-label="Toggle confirm password visibility"
+              >
+                <i class="fas fa-eye"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="profilePhoto">Upload Profile Photo</label>
+            <input type="file" id="profilePhoto" name="profilePhoto" accept="image/*" />
+            <img id="photoPreview" src="" alt="Profile Preview" style="max-width: 150px; margin-top: 10px; display: none; border-radius: 50%;" />
+          </div>
+
+          <div class="form-options">
+            <label class="terms-checkbox">
+              <input type="checkbox" id="terms" required />
+              <span class="checkmark"></span>
+              I agree to the
+              <a href="#" class="terms-link">Terms of Service</a> and
+              <a href="#" class="privacy-link">Privacy Policy</a>
+            </label>
+          </div>
+
+          <div class="form-buttons">
+            <button type="button" id="prevStep2Btn" class="signup-btn" style="background: #999;">
+                <i class="fas fa-arrow-left"></i> Previous
+            </button>
+            <button type="submit" id="submitBtn" class="signup-btn">
+              <i class="fas fa-user-plus"></i> Create Account
+            </button>
+          </div>
+        </div>
+      </form>
+
+      <div class="signup-footer">
+        <p>
+          Already have an account?
+          <a href="Signin.html">Sign In</a>
+        </p>
+        <div class="back-home">
+          <a href="index.html">
+            <i class="fas fa-arrow-left"></i> Back to Home
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="auth.js"></script>
+  <script>
+    // Profile photo preview (unchanged)
+    document.getElementById('profilePhoto').addEventListener('change', function () {
+      const preview = document.getElementById('photoPreview');
+      const file = this.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          preview.src = e.target.result;
+          preview.style.display = 'block';
+        };
+        reader.readAsDataURL(file);
+      } else {
+        preview.src = '';
+        preview.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>

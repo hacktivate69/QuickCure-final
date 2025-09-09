@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Doctor Portal - QuickCure</title>
+    <link rel="stylesheet" href="Doctor.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="https://placehold.co/40x40/667eea/ffffff?text=QC" alt="QuickCure Logo" class="logo-img" />
+                <h1>QuickCure</h1>
+            </div>
+            <nav class="nav">
+                <a href="#patients"><i class="fas fa-users"></i> Patients</a>
+                <a href="#prescriptions"><i class="fas fa-prescription-bottle-alt"></i> Prescriptions</a>
+                <a href="doctor-profile.html"><i class="fas fa-user-md"></i> Profile</a>
+            </nav>
+            <button type="button" id="mobileMenuBtn" class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <div id="mobileMenu" class="mobile-menu">
+            <a href="#patients"><i class="fas fa-users"></i> Patients</a>
+            <a href="#prescriptions"><i class="fas fa-prescription-bottle-alt"></i> Prescriptions</a>
+            <a href="doctor-profile.html"><i class="fas fa-user-md"></i> Profile</a>
+        </div>
+    </header>
+
+    <!-- Main Dashboard -->
+    <main class="doctor-dashboard">
+        <div class="container">
+            <!-- Welcome Section -->
+            <section class="welcome-section">
+                <div class="welcome-header">
+                    <div class="welcome-text">
+                        <h1>Welcome back, <span class="doctor-name" id="doctorName">Doctor</span>!</h1>
+                        <p>Ready to help your patients today?</p>
+                    </div>
+                    <div class="doctor-avatar">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                </div>
+
+                <!-- Quick Stats -->
+                <div class="quick-stats">
+                    <div class="quick-stat-card">
+                        <i class="fas fa-users"></i>
+                        <div class="stat-info">
+                            <h3 id="totalPatients">0</h3>
+                            <p>Total Patients</p>
+                        </div>
+                    </div>
+                    <div class="quick-stat-card">
+                        <i class="fas fa-star"></i>
+                        <div class="stat-info">
+                            <h3 id="doctorRating">0.0</h3>
+                            <p>Rating</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Digital Prescriptions Section -->
+            <section class="prescriptions-section" id="prescriptions">
+                <div class="section-header">
+                    <h2><i class="fas fa-prescription-bottle-alt"></i> Digital Prescriptions</h2>
+                    <button type="button" class="btn btn-primary" id="issuePrescriptionBtn">
+                        <i class="fas fa-plus"></i> Issue New Prescription
+                    </button>
+                </div>
+                <div class="table-container">
+                    <table id="prescriptionTable">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Patient Name</th>
+                                <th>Medicines</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="prescriptionTableBody">
+                            <!-- Prescriptions will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Patients Section -->
+            <section id="patients" class="patients-section">
+                <div class="container">
+                    <div class="section-header">
+                        <h2><i class="fas fa-users"></i> Patient Management</h2>
+                        <div class="search-filters">
+                            <input type="text" id="patientSearch" placeholder="Search patients..." />
+                            <button type="button" class="btn btn-primary" id="addPatientBtn">
+                                <i class="fas fa-plus"></i> Add Patient
+                            </button>
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Patient Name</th>
+                                    <th>Age</th>
+                                    <th>Last Visit</th>
+                                    <th>Phone</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="patientTableBody">
+                                <!-- Patient data will be loaded here by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <!-- MODALS -->
+    <!-- Add Patient Modal -->
+    <div id="addPatientModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New Patient</h3>
+                <button class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="addPatientForm">
+                    <div class="form-group">
+                        <label for="patientName">Patient Name</label>
+                        <input type="text" id="patientName" required />
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="patientAge">Age</label>
+                            <input type="number" id="patientAge" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="patientPhone">Phone</label>
+                            <input type="tel" id="patientPhone" />
+                        </div>
+                    </div>
+                    <div class="modal-actions">
+                        <button type="submit" class="btn btn-primary">Add Patient</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Issue Prescription Modal -->
+    <div id="issuePrescriptionModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Issue New Prescription</h3>
+                <button class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="issuePrescriptionForm">
+                    <div class="form-group">
+                        <label for="prescriptionPatient">Patient Name</label>
+                        <input type="text" id="prescriptionPatient" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="prescriptionMedicines">Medicines & Instructions</label>
+                        <textarea id="prescriptionMedicines" rows="5" required></textarea>
+                    </div>
+                    <div class="modal-actions">
+                        <button type="submit" class="btn btn-primary">Issue Prescription</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- View Details Modal -->
+    <div id="viewDetailsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Details</h3>
+                <button class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body" id="viewDetailsContent">
+                <!-- Content will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script src="Doctor.js"></script>
+</body>
+</html>

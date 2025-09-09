@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Patient Dashboard - QuickCure</title>
+    <link rel="stylesheet" href="Patient.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="QuickCureLogo.png" alt="Quickcure Logo" class="logo-img" />
+                <h1>QuickCure</h1>
+            </div>
+            <nav class="nav">
+                <a href="patient-symptom-checker.html">Symptom Checker</a>
+                <a href="patient-health-wallet.html">Health Wallet</a>
+                <a href="patient.html#appointment-section">Book Appointment</a>
+                <a href="#" id="logoutBtnDesktop" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
+                </a>
+                <a href="patient-profile.html" class="profile-link-desktop">
+                    <img src="User-Profile.png" alt="User  Profile" class="profile-pic-desktop" />
+                </a>
+            </nav>
+            <button id="mobileMenuBtn" class="mobile-menu-btn" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div id="mobileMenu" class="mobile-menu" aria-hidden="true">
+                <a href="patient-symptom-checker.html">Symptom Checker</a>
+                <a href="patient-health-wallet.html">Health Wallet</a>
+                <a href="patient-profile.html" class="profile-link-mobile">
+                    Profile
+                    <img src="../Media/User-Profile.png" alt="Profile" class="profile-pic" />
+                </a>
+                <a href="#appointment-section">Book Appointment</a>
+                <a href="#" id="logoutBtnMobile" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="patient-dashboard" id="welcome-section">
+        <div class="container">
+            <!-- Welcome Section -->
+            <section class="welcome-section">
+                <div class="welcome-header">
+                    <div class="welcome-text">
+                        <h1>Welcome back, <span class="patient-name">John Doe</span>!</h1>
+                        <p>Your health journey continues here</p>
+                    </div>
+                    <div class="patient-avatar" aria-label="User  avatar">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                </div>
+
+                <div class="stats-grid" role="list">
+                    <div class="stat-card" role="listitem">
+                        <i class="fas fa-calendar-check" aria-hidden="true"></i>
+                        <h3 id="upcomingCount">3</h3>
+                        <p>Upcoming Appointments</p>
+                    </div>
+                    <div class="stat-card" role="listitem">
+                        <i class="fas fa-user-md" aria-hidden="true"></i>
+                        <h3 id="doctorsCount">2</h3>
+                        <p>Doctors Consulted</p>
+                    </div>
+                    <div class="stat-card" role="listitem">
+                        <i class="fas fa-file-medical" aria-hidden="true"></i>
+                        <h3 id="recordsCount">5</h3>
+                        <p>Medical Records</p>
+                    </div>
+                    <div class="stat-card" role="listitem">
+                        <i class="fas fa-prescription-bottle" aria-hidden="true"></i>
+                        <h3 id="prescriptionsCount">2</h3>
+                        <p>Active Prescriptions</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Appointment Section -->
+            <section class="appointment-section" id="appointment-section">
+                <div class="appointment-header">
+                    <div class="header-text">
+                        <h2>Get Appointment</h2>
+                        <p>Book your next appointment with our healthcare professionals</p>
+                    </div>
+                    <div class="appointment-icon" aria-hidden="true">
+                        <i class="fas fa-plus-circle"></i>
+                    </div>
+                </div>
+
+                <div class="booking-flow-section">
+                    <h2>Select Your Preferences</h2>
+
+                    <div class="preferences-section">
+                        <label for="specialty">Choose Specialty:</label>
+                        <select id="specialty" aria-required="true" aria-describedby="specialtyHelp">
+                            <option value="">-- Choose Specialty --</option>
+                        </select>
+                        <small id="specialtyHelp" class="sr-only">Select your desired medical specialty</small>
+
+                        <label for="city">Choose City:</label>
+                        <select id="city" aria-required="true" aria-describedby="cityHelp">
+                            <option value="">-- Choose City --</option>
+                        </select>
+                        <small id="cityHelp" class="sr-only">Select your city</small>
+                    </div>
+
+                    <div class="find-doctors-section">
+                        <button id="nextBtn" class="btn btn-primary" aria-label="Find Available Doctors">
+                            <i class="fas fa-search" aria-hidden="true"></i>
+                            Find Available Doctors
+                        </button>
+                    </div>
+
+                    <div class="quick-info" aria-label="Quick information">
+                        <div class="info-item">
+                            <i class="fas fa-clock" aria-hidden="true"></i>
+                            <span>Available 24/7</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+                            <span>Easy Booking Process</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-stethoscope" aria-hidden="true"></i>
+                            <span>Expert Doctors</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Access Section -->
+            <section class="quick-access-section">
+                <div class="section-header">
+                    <h2>Quick Access</h2>
+                    <p>Manage your healthcare appointments and records</p>
+                </div>
+
+                <div class="quick-access-grid">
+                    <div class="access-card" role="button" tabindex="0" onclick="window.location.href='Patient-profile.html#appointments'" onkeypress="if(event.key==='Enter'){window.location.href='patient.html#welcome-section'}" aria-label="Book Appointments">
+                        <div class="access-icon">
+                            <i class="fas fa-calendar-plus" aria-hidden="true"></i>
+                        </div>
+                        <h3>My Appointments</h3>
+                        <p>Get track of your appointment</p>
+                        <div class="access-arrow">
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </div>
+                    </div>
+
+
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 QuickCure. Making healthcare accessible for everyone.</p>
+    </footer>
+
+    <!-- Notification -->
+    <div id="notification" class="notification" role="alert" aria-live="assertive"></div>
+
+    <script src="patient.js"></script>
+    <script src="auth.js"></script>
+    <script src="Appointment.js"></script>
+</body>
+</html>
